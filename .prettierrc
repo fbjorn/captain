@@ -1,0 +1,25 @@
+{
+  "printWidth": 100,
+  "trailingComma": "none",
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": false,
+  "endOfLine": "lf",
+  "proseWrap": "always",
+  "plugins": ["prettier-plugin-svelte"],
+  "overrides": [
+    {
+      "files": "*.yaml",
+      "options": {
+        "proseWrap": "preserve"
+      }
+    },
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
+}

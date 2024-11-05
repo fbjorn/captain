@@ -1,0 +1,37 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: debug-statements
+      # All non-bat files should end with LF
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+        exclude: |
+          (?x)(
+            \.bat$|
+            ^NOT-EXISTING-LAST-ENTRY$
+          )
+      # Bat files should be CRLF ending
+      - id: mixed-line-ending
+        args: ["--fix=crlf"]
+        files: \.bat$
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.6.2
+    hooks:
+      - id: prettier
+        additional_dependencies:
+          - prettier@3.3.2
+          - prettier-plugin-svelte@3.2.6
+        exclude: |
+          (?x)(
+            /pnpm-lock.yaml$|
+            /src/lib/theme.css$|
+            /src/lib/theme.css.map$|
+            ^NOT-EXISTING-LAST-ENTRY$
+          )
