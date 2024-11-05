@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-      - feat/ci
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
